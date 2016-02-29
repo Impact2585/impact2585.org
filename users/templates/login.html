@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>Login/Register</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.carousel.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.theme.css" %}">
+		<script type="text/javascript" src="{% static "js/jquery-2.1.1.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/owl.carousel.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/bootstrap.js"%}"></script>
+	</head>
+	<body>
+	<a href="/"><img id="logo" src="{% static "media/home/logo.png" %}"></a>
+	<center>
+		<table class="nav-bar">
+			<tr>
+				<td><a class="nav-btn" href="/">Home</a></td>
+				<td><a class="nav-btn" href="/media/">Media</a></td>
+				<td><a class="nav-btn" href="/robots/">Robots</a></td>
+				<td><a class="nav-btn" href="/aboutus/">About Us</a></td>
+				<td><a class="nav-btn" href="/sponsors/">Sponsors</a></td>
+				<td><a class="nav-btn active" href="/login/">Login/Register</a></td>
+			</tr>
+		</table>
+	</center>
+	<hr />
+	<br />
+
+		{% if registered %}
+       		<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <strong>Success!</strong> You can now login.
+		</div>
+        {% endif %}
+		<center>
+			<div class="login-register-container">
+				<div class="login-container">
+					<center>
+						<h4>Login</h4>
+							<input type="text" placeholder="Email" class="form-control" name="email">
+							{% csrf_token %}
+							<br />
+							<input type="password" placeholder="Password" class="form-control" name="password">
+							<br />
+							<input type="submit" value="Login">
+					</center>
+				</div>
+				<div class="register-containers">
+					<h4>Register</h4>
+					<form id="" method="" action="">
+					{% csrf_token %}
+						<input type="text" placeholder="Name" class="form-control" name="name" id="register-input">
+						<br />
+						<input type="text" placeholder="Email" class="form-control" name="email" id="register-input">
+						<br />
+						<input type="text" placeholder="Phone Number" class="form-control" name="phone" id="register-input">
+						<br />
+						<input type="password" placeholder="Password" class="form-control" name="password" id="register-input">
+						<br />
+						<input type="submit" value="Register">
+					</form>
+				</div>
+			</div>
+		</center>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>About Us</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.carousel.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.theme.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/prettyPhoto.css"%}" media="screen" charset="utf-8">
+		<script type="text/javascript" src="{% static "js/jquery-2.1.1.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/owl.carousel.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/bootstrap.js"%}"></script>
+		<script src="{% static "js/jquery.prettyPhoto.js" %}" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+  		$(document).ready(function(){
+    		$("a[rel^='prettyPhoto']").prettyPhoto();
+  		});
+		</script>
+	</head>
+	<body>
+	<a href="/"><img id="logo" src="{% static "media/home/logo.png" %}"></a>
+	<center>
+		<table class="nav-bar">
+			<tr>
+				<td><a class="nav-btn" href="/">Home</a></td>
+				<td><a class="nav-btn" href="/media/">Media</a></td>
+				<td><a class="nav-btn" href="/robots/">Robots</a></td>
+				<td><a class="nav-btn active" href="/aboutus/">About Us</a></td>
+				<td><a class="nav-btn" href="/sponsors/">Sponsors</a></td>
+				{% if loggedin %}
+				<td><a class="nav-btn" href="/logout/">Logout</a></td>
+				{% else %}
+				<td><a class="nav-btn" href="/login/">Login/Register</a></td>
+				{% endif %}
+			</tr>
+		</table>
+	</center>
+	<hr />
+	<center>
+		<a href="{% static "media/home/lonestar.jpg" %}" rel="prettyPhoto"><img width="25%" style="padding-right: 20px; padding-left: 20px;" class="pull-left" src="{% static "media/home/lonestar.jpg" %}"></a>Impact is a small team of students at Bellaire High School that competes in both the FIRST Robotics Competition and the VEX robotics competition under the team number 2585. The 2014 season was the best season that we have had so far. Having won the Lone Star Regional with a team of humble size, we have recently grown and become larger and more organized as a team. We've gained new members, built new robots and learned new skills since then and do not show any sign of slowing down.<p style="width: 80%"></p>
+	</center>
+	</body>
+</html>

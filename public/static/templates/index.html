@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>Impact2585 - Home</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.carousel.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.theme.css" %}">
+		<script type="text/javascript" src="{% static "js/jquery-2.1.1.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/owl.carousel.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/bootstrap.js"%}"></script>
+		<script>
+		$(document).ready(function() {
+			$("#main-carousel").owlCarousel({
+				singleItem: true,
+				autoPlay: 10000,
+				paginationSpeed: 850,
+			});
+		});
+		</script>
+	</head>
+	<body>
+	<a href="/"><img id="logo" src="{% static "media/home/logo.png" %}"></a>
+	<center>
+		<table class="nav-bar">
+			<tr>
+				<td><a class="nav-btn active" href="/">Home</a></td>
+				<td><a class="nav-btn" href="media/">Media</a></td>
+				<td><a class="nav-btn" href="robots/">Robots</a></td>
+				<td><a class="nav-btn" href="aboutus/">About Us</a></td>
+				<td><a class="nav-btn" href="sponsors/">Sponsors</a></td>
+				{% if loggedin %}
+				<td><a class="nav-btn" href="/logout/">Logout</a></td>
+				{% else %}
+				<td><a class="nav-btn" href="/login/">Login/Register</a></td>
+				{% endif %}
+			</tr>
+		</table>
+	</center>
+	<hr />
+		{% if recent_login %}
+    <div class="alert alert-success alert-dismissible" role="alert">
+  		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  		<strong>Success!</strong> You have successfully logged in.
+		</div>
+    {% endif %}
+		<div id="main-carousel" class="owl-carousel" style="padding-left: 10px;">
+				<div>
+						<img class="carousel-images" src="{% static "media/home/lonestar.jpg"%}" alt="Lone Star">
+						<div class="carousel-text">
+							<h3>Lone Star Regional</h3>
+								<p>During the 2014 FIRST Robotics season, team 2585 won the Lone Star regional with the help of teams 118 and 148.</p>
+						</div>
+				</div>
+				<div>
+						<img class="carousel-images" src="{% static "media/home/remix.jpg"%}" alt="Remix">
+						<div class="carousel-text">
+							<h3>Remix</h3>
+							<p>Team 2585 preparing wiring and pneumatics for this year's Houston Robot Remix.</p>
+						</div>
+				</div>
+				<div>
+				<iframe width="640" height="360" class="carousel-videos" src="//www.youtube.com/embed/lCy8ybQaXVA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+						<div class="carousel-text">
+							<h3>VEX Worlds</h3>
+							<p>2013-2014 team Vice President Victoria Stuckey interviewed at the VEX World Championships in Anaheim, California.</p>
+						</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

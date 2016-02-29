@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Sponsors</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.carousel.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.theme.css" %}">
+		<script type="text/javascript" src="{% static "js/jquery-2.1.1.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/owl.carousel.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/bootstrap.js"%}"></script>
+	</head>
+	<body>
+	<a href="/"><img id="logo" src="{% static "media/home/logo.png" %}"></a>
+	<center>
+		<table class="nav-bar">
+			<tr>
+				<td><a class="nav-btn" href="/">Home</a></td>
+				<td><a class="nav-btn" href="/media/">Media</a></td>
+				<td><a class="nav-btn" href="/robots/">Robots</a></td>
+				<td><a class="nav-btn" href="/aboutus/">About Us</a></td>
+				<td><a class="nav-btn active" href="/sponsors/">Sponsors</a></td>
+				{% if loggedin %}
+				<td><a class="nav-btn" href="/logout/">Logout</a></td>
+				{% else %}
+				<td><a class="nav-btn" href="/login/">Login/Register</a></td>
+				{% endif %}
+			</tr>
+		</table>
+	</center>
+	<hr />
+		<center>
+			<table class="sponsors">
+				<tr>
+					<td><a href="http://www.bellaire.org/"><img src="{% static "media/sponsors/bhs.jpg"%}"></a></td>
+					<td><a href="http://www.twc.state.tx.us/"><img src="{% static "media/sponsors/twc.png"%}"></a></td>
+					<td><a href="http://pentier.net/"><img src="{% static "media/sponsors/pentier.png"%}"></a></td>
+                                        <td><a href="http://kidsroboticacademy.com/"><img src="{% static "media/sponsors/kra.png"%}"></a></td>
+						<td><a href="http://corporate.exxonmobil.com/"><img src="{% static "media/sponsors/exxon.gif"%}"></a></td>
+				</tr>
+			</table>
+		</center>
+	</body>
+</html>

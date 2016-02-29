@@ -1,0 +1,100 @@
+<html>
+	{% if loggedin %}
+	{% else %}
+	<head>
+		<title>Login/Register</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.carousel.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.theme.css" %}">
+		<script type="text/javascript" src="{% static "js/jquery-2.1.1.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/owl.carousel.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/bootstrap.js"%}"></script>
+	</head>
+	<body>
+	<a href="/"><img id="logo" src="{% static "media/home/logo.png" %}"></a>
+	<center>
+		<table class="nav-bar">
+			<tr>
+				<td><a class="nav-btn" href="/">Home</a></td>
+				<td><a class="nav-btn" href="/media/">Media</a></td>
+				<td><a class="nav-btn" href="/robots/">Robots</a></td>
+				<td><a class="nav-btn" href="/aboutus/">About Us</a></td>
+				<td><a class="nav-btn" href="/sponsors/">Sponsors</a></td>
+				<td><a class="nav-btn active" href="/login/">Login/Register</a></td>
+			</tr>
+		</table>
+	</center>
+	<hr />
+	<br />
+
+		{% if recent_register %}
+    <div class="alert alert-success alert-dismissible" role="alert">
+  		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  		<strong>Success!</strong> You can now login.
+		</div>
+    {% endif %}
+    {% if confirm_fail %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+  		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  		<strong>Failed to register!</strong> Passwords do not match/Password Required.
+		</div>
+    {% endif %}
+    {% if name_fail %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+  		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  		<strong>Failed to register!</strong> Name field required.
+		</div>
+    {% endif %}
+    {% if email_fail %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+  		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  		<strong>Failed to register!</strong> Email field required.
+		</div>
+    {% endif %}
+    {% if email_in_use_fail %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+  		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  		<strong>Failed to register!</strong> Email already in use.
+		</div>
+    {% endif %}
+    {% if invalid_login %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+  		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  		<strong>Failed to login!</strong> Invalid username or password.
+		</div>
+    {% endif %}
+		<center>
+			<div class="login-register-container">
+				<div class="login-container">
+					<center>
+						<h4>Login</h4>
+						<form action="/auth/" method="POST"> {% csrf_token %}
+								<input type="text" placeholder="Email" class="form-control" name="email" />
+								<br />
+								<input type="password" placeholder="Password" class="form-control" name="password" />
+								<br />
+								<input type="Submit" value="Login" />
+						</form>
+					</center>
+				</div>
+				<div class="register-containers">
+					<h4>Register</h4>
+					<form method="POST" action="/register/">{% csrf_token %}
+						<input type="text" placeholder="Name" {% if name_fail %} class="form-fail" {% else %} class="form-control" {% endif %} name="name" id="register-input" />
+						<br />
+						<input type="text" placeholder="Email" {% if email_fail %} class="form-fail" {% else %} class="form-control" {% endif %} name="email" id="register-input" />
+						<br />
+						<input type="password" placeholder="Password" {% if confirm_fail %} class="form-fail" {% else %} class="form-control" {% endif %} name="password" id="register-input" />
+						<br />
+						<input type="password" placeholder="Confirm Password" {% if confirm_fail %} class="form-fail" {% else %} class="form-control" {% endif %} name="confirm" id="register-input" />
+						<br />
+						<input type="Submit" value="Register" />
+					</form>
+				</div>
+			</div>
+		</center>
+	</body>
+	{% endif %}
+</html>

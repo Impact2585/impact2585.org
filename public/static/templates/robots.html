@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>Robots</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.carousel.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/owl.theme.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/prettyPhoto.css"%}" media="screen" charset="utf-8">
+		<script type="text/javascript" src="{% static "js/jquery-2.1.1.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/owl.carousel.js"%}"></script>
+		<script type="text/javascript" src="{% static "js/bootstrap.js"%}"></script>
+		<script src="{% static "js/jquery.prettyPhoto.js" %}" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+  		$(document).ready(function(){
+    		$("a[rel^='prettyPhoto']").prettyPhoto();
+  		});
+		</script>
+		<script type="text/javascript">
+				$(document).ready(function() {
+		    $(".media-nav a").click(function(event) {
+		        event.preventDefault();
+		        $(this).parent().addClass("current");
+		        $(this).parent().siblings().removeClass("current");
+		        var tab = $(this).attr("href");
+		        $(".tab-content").not(tab).css("display", "none");
+		        $(tab).fadeIn();
+		    });
+		});
+		</script>
+	</head>
+	<body>
+	<a href="/"><img id="logo" src="{% static "media/home/logo.png" %}"></a>
+	<center>
+		<table class="nav-bar">
+			<tr>
+				<td><a class="nav-btn" href="/">Home</a></td>
+				<td><a class="nav-btn" href="/media/">Media</a></td>
+				<td><a class="nav-btn active" href="/robots/">Robots</a></td>
+				<td><a class="nav-btn" href="/aboutus/">About Us</a></td>
+				<td><a class="nav-btn" href="/sponsors/">Sponsors</a></td>
+				{% if loggedin %}
+				<td><a class="nav-btn" href="/logout/">Logout</a></td>
+				{% else %}
+				<td><a class="nav-btn" href="/login/">Login/Register</a></td>
+				{% endif %}
+			</tr>
+		</table>
+	</center>
+	<hr />
+	<div>
+	<center>
+		<table class="media-nav">
+			<tr>
+				<td class="current"><a class="nav-btn" href="#FIRST">FIRST</a></td>
+				<td><a class="nav-btn" href="#VEX">VEX</a></td>
+			</tr>
+		</table>
+		</center>
+		<div id="FIRST" class="tab-content">
+			<div class="robot">
+				<a href="{% static "media/photos/Aerbot.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/Aerbot.jpg"%}"  alt="Aerbot - Aerial Assist 2014" ></a>
+				<h4>Aerbot - Aerial Assist 2014</h4>
+				<p>2014 was the first year that Bellaire won Lone Star Regional and qualified for the World Championship in St. Louis. </p>
+				<hr />
+			</div>
+			<div class="robot">
+				<a href="{% static "media/photos/ghetto.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/ghetto.jpg"%}" alt="Frisbot - Ulitmate Ascent 2013"></a>
+				<h4>Frisbot A.K.A. Ghetto Bot- Ultimate Ascent 2013</h4>
+				<p>This was built out of a classroom!</p>
+				<hr />
+			</div>
+		</div>
+		<div id="VEX" class="tab-content" style="display: none;">
+			<div class="robot">
+				<a href="{% static "media/photos/linearlift.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/linearlift.jpg"%}"  alt="Linear Lift Bot - VEX Toss Up 2014" ></a>
+				<h4>Linear Lift Bot - VEX Toss Up 2014</h4>
+				<p>First iteration of our VEX Toss Up robot that qualified our team to the State Championship and had people bow down to its superior autonomous mode.</p>
+				<hr />
+			</div>
+			<div class="robot">
+				<a href="{% static "media/photos/newbot.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/newbot.jpg"%}"  alt="4-Bar Robot - VEX Toss Up 2014" ></a>
+				<h4>4-Bar Robot - VEX Toss Up 2014</h4>
+				<p>The second iteration of our VEX Toss up Robot used at the State Championship and qualfied us to the World Championships in Anaheim, California. Originally a 6-Bar lift design and was changed to a 4-Bar design for the World Championships</p>
+				<hr />
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
