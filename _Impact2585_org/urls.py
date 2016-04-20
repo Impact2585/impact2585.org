@@ -14,10 +14,6 @@ urlpatterns = patterns('',
 		url(r'^robots/', views.robots),
 		url(r'^aboutus/', views.aboutus),
 		url(r'^sponsors/', views.sponsors),
-		url(r'^login/', views.login),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^register/$', views.register),
-    url(r'^auth/$', views.authentication),
-    url(r'^logout/$', views.logout_view),
 
 )
