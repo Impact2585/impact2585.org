@@ -53,6 +53,8 @@ hr{
 	text-align: center;
 	color: black;
 	font-size: 14px;
+	padding-right: 50px;
+	padding-left: 50px;
 }
 
 .carousel-nav,
@@ -76,7 +78,7 @@ hr{
 	padding: 10px;
 }
 .media-image img{
-	height: 200px;
+	height: 150px;
 	border: 2px solid red;
 }
 .carousel-left{
@@ -141,6 +143,10 @@ hr{
 }
 .robot p{
 	padding-bottom: 103px;
+	padding-left: 10px;
+}
+.robot h4{
+	padding-left: 10px;
 }
 
 .sponsors img{
@@ -150,60 +156,6 @@ hr{
 	width: 307px;
 	padding: 40px;
 	padding-top: 10px;
-}
-
-.login-register-container{
-	border: 1px solid #FC3838;
-	border-radius: 10px;
-	width: 40%;
-	display: inline-block;
-	clear: both;
-	height: 300px;
-}
-
-.login-container{
-	width: 50%; 
-	border-right: 1px solid red;
-	float: left;
-	padding-top: 50px;
-	height: 300px;
-}
-
-.register-container{
-	width: 50%;
-	float: right;
-}
-
-#register-input{
-	width: 40%;
-}
-
-.form-control{
-	width: 80%;
-}
-.form-fail{
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #f00;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-.form-fail:focus{
-  border-color: #f00;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 0, 0, .6);
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 0, 0, .6);
 }
 .media-nav td{
 	padding-left: 10px;

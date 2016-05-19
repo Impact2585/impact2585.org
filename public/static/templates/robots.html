@@ -53,32 +53,14 @@
 		</table>
 		</center>
 		<div id="FIRST" class="tab-content">
-			<div class="robot">
-				<a href="{% static "media/photos/Aerbot.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/Aerbot.jpg"%}"  alt="Aerbot - Aerial Assist 2014" ></a>
-				<h4>Aerbot - Aerial Assist 2014</h4>
-				<p>2014 was the first year that Bellaire won Lone Star Regional and qualified for the World Championship in St. Louis. </p>
-				<hr />
-			</div>
-			<div class="robot">
-				<a href="{% static "media/photos/ghetto.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/ghetto.jpg"%}" alt="Frisbot - Ulitmate Ascent 2013"></a>
-				<h4>Frisbot - Ultimate Ascent 2013</h4>
-				<p>This was built out of a classroom!</p>
-				<hr />
-			</div>
+		{% autoescape off %}
+		{{ frc_robots }}
+		{% endautoescape %}
 		</div>
 		<div id="VEX" class="tab-content" style="display: none;">
-			<div class="robot">
-				<a href="{% static "media/photos/linearlift.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/linearlift.jpg"%}"  alt="Linear Lift Bot - VEX Toss Up 2014" ></a>
-				<h4>Linear Lift Bot - VEX Toss Up 2014</h4>
-				<p>First iteration of our VEX Toss Up robot that qualified our team to the State Championship and had people bow down to its superior autonomous mode.</p>
-				<hr />
-			</div>
-			<div class="robot">
-				<a href="{% static "media/photos/newbot.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/newbot.jpg"%}"  alt="4-Bar Robot - VEX Toss Up 2014" ></a>
-				<h4>4-Bar Robot - VEX Toss Up 2014</h4>
-				<p>The second iteration of our VEX Toss up Robot used at the State Championship and qualfied us to the World Championships in Anaheim, California. Originally a 6-Bar lift design and was changed to a 4-Bar design for the World Championships</p>
-				<hr />
-			</div>
+		{% autoescape off %}
+		{{ vex_robots }}
+		{% endautoescape %}
 		</div>
 	</div>
 	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

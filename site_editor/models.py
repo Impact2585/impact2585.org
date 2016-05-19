@@ -2,11 +2,14 @@ from django.db import models
 
 # Create your models here.
 class Index(models.Model):
-	carousel_image = models.ImageField(upload_to='public/static/media/home/')
+	MEDIACHOICE = (
+			('0', 'Image'),
+			('1', 'Video'),
+		)
+	carousel_media_file_name = models.CharField(max_length=200)
 	carousel_title = models.CharField(max_length=200)
 	carousel_description = models.CharField(max_length=750)
-	class Meta:
-		unique_together = ('carousel_title', 'carousel_description')
+	media_type = models.CharField(max_length=1, choices=MEDIACHOICE)
 	def __unicode__(self):
 		return self.carousel_title
 
@@ -17,12 +20,9 @@ class Media(models.Model):
 		)
 	image = models.ImageField(upload_to='public/static/media/photos/')
 	year = models.IntegerField()
-	album = models.CharField(max_length=200)
-	competition = models.CharField(max_length=1, choices=IMAGECHOICE)
-	class Meta:
-		unique_together = ('album', 'competition')
+	album = models.CharField(max_length = 50)
 	def __unicode__(self):
-		return self.album
+		return self.album;
 
 class Robot(models.Model):
 	ROBOTCHOICE = (
@@ -33,12 +33,10 @@ class Robot(models.Model):
 	game_name = models.CharField(max_length=100)
 	game_year = models.IntegerField()
 	description = models.CharField(max_length=500)
-	robot_image = models.ImageField(upload_to='public/static/media/photos/')
+	robot_image_file_name = models.CharField(max_length=200)
 	competition = models.CharField(max_length=1, choices=ROBOTCHOICE)
-	class Meta:
-		unique_together = ('robot_name', 'game_name', 'description', 'competition')
-		def __unicode__(self):
-			return self.robot_name
+	def __unicode__(self):
+		return self.robot_name
 
 class Sponsor(models.Model):
 	TIERCHOICE = (
