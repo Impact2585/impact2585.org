@@ -34,27 +34,9 @@
 	</center>
 	<hr />
 		<div id="main-carousel" class="owl-carousel" style="padding-left: 10px;">
-				<div>
-						<img class="carousel-images" src="{% static "media/home/lonestar.jpg"%}" alt="Lone Star">
-						<div class="carousel-text">
-							<h3>Lone Star Regional</h3>
-								<p>During the 2014 FIRST Robotics season, team 2585 won the Lone Star Regional with the help of teams 118 and 148.</p>
-						</div>
-				</div>
-				<div>
-						<img class="carousel-images" src="{% static "media/home/remix.jpg"%}" alt="Remix">
-						<div class="carousel-text">
-							<h3>Remix</h3>
-							<p>Team 2585 preparing wiring and pneumatics for the 2014 Houston Robot Remix.</p>
-						</div>
-				</div>
-				<div>
-				<iframe width="640" height="360" class="carousel-videos" src="//www.youtube.com/embed/lCy8ybQaXVA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-						<div class="carousel-text">
-							<h3>VEX Worlds</h3>
-							<p>2013-2014 team Vice President Victoria Stuckey interviewed at the VEX World Championships in Anaheim, California.</p>
-						</div>
-				</div>
+		{% autoescape off %}
+		{{ content }}
+		{% endautoescape %}
 			</div>
 		</div>
   		<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

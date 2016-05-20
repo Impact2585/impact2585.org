@@ -11,37 +11,10 @@
 		<script type="text/javascript" src="{% static "js/owl.carousel.js"%}"></script>
 		<script type="text/javascript" src="{% static "js/bootstrap.js"%}"></script>
 		<script src="{% static "js/jquery.prettyPhoto.js" %}" type="text/javascript" charset="utf-8"></script>
-		<script>
-		$(document).ready(function() {
-			var image_carousel = $("#image-carousel");
-			image_carousel.owlCarousel({
-				items: 5,
-				lazyLoad: true
-			});
-			$(".carousel-right").click(function(){
-				image_carousel.trigger("owl.next");
-			});
-			$(".carousel-left").click(function(){
-				image_carousel.trigger("owl.prev");
-			});
-		});
-		</script>
 		<script type="text/javascript" charset="utf-8">
   		$(document).ready(function(){
     		$("a[rel^='prettyPhoto']").prettyPhoto();
   		});
-		</script>
-		<script type="text/javascript">
-				$(document).ready(function() {
-		    $(".media-nav a").click(function(event) {
-		        event.preventDefault();
-		        $(this).parent().addClass("current");
-		        $(this).parent().siblings().removeClass("current");
-		        var tab = $(this).attr("href");
-		        $(".tab-content").not(tab).css("display", "none");
-		        $(tab).fadeIn();
-		    });
-		});
 		</script>
 	</head>
 	<body>
@@ -58,42 +31,9 @@
 		</table>
 	</center>
 	<hr />
-		<center>
-			<div>
-			<table class="media-nav">
-				<tr>
-					<td class="current"><a class="nav-btn" href="#FIRST">FIRST</a></td>
-					<td><a class="nav-btn" href="#VEX">VEX</a></td>
-				</tr>
-			</table>
-			<div id="FIRST" class="tab-content">
-			<table>
-				<tr>
-					<td class="media-image"><a href="{% static "media/home/lonestar.jpg" %}" rel="prettyPhoto"><img src="{% static "media/home/lonestar.jpg" %}"></a></td>
-					<td class="media-image"><a href="{% static "media/home/remix.jpg" %}" rel="prettyPhoto"><img src="{% static "media/home/remix.jpg" %}"></a></td>
-					<td class="media-image"><a href="{% static "media/photos/win.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/win.jpg" %}"></a></td>
-				</tr>
-				<tr>
-					<td class="media-image"><a href="{% static "media/photos/IMG_8066.JPG" %}" rel="prettyPhoto"><img src="{% static "media/photos/IMG_8066.JPG" %}"></a></td>
-					<td class="media-image"><a href="{% static "media/photos/Aerbot-proto.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/Aerbot-proto.jpg" %}"></a></td>
-					<td class="media-image"><a href="{% static "media/photos/IMG_8054.JPG" %}" rel="prettyPhoto"><img src="{% static "media/photos/IMG_8054.JPG" %}"></a></td>
-				</tr>
-				</table>
-			</div>
-			<div id="VEX" class="tab-content" style="display: none">
-				<table>
-					<tr>
-						<td class="media-image"><a href="{% static "media/photos/linearlift.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/linearlift.jpg" %}"></a></td>
-						<td class="media-image"><a href="{% static "media/photos/linearcomp.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/linearcomp.jpg" %}"></a></td>
-						<td class="media-image"><a href="{% static "media/photos/linearlift2.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/linearlift2.jpg" %}"></a></td>
-					</tr>
-					<tr>
-						<td class="media-image"><a href="{% static "media/photos/newbot.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/newbot.jpg" %}"></a></td>
-						<td class="media-image"><a href="{% static "media/photos/awards.jpg" %}" rel="prettyPhoto"><img src="{% static "media/photos/awards.jpg" %}"></a></td>
-					</tr>
-				</table>
-			</div>
-		</center>
+		{% autoescape off %}
+		{{ content }}
+		{% endautoescape %}
 		<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 	</body>
 </html>
