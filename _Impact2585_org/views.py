@@ -34,10 +34,9 @@ def media(request):
 		max_year = media[len(media)-1].year
 		min_year = media[0].year
 		firstImage = 1;
-		albums = []
-		completed_albums = []
 		for x in range(max_year - min_year + 1):
-
+			albums = []
+			completed_albums = []
 			content += """<div><h3 style='padding-left: 10px;'>""" + str(x + min_year) + """ Albums</h3>
 								 <table style="margin: auto">
 								 <tr>"""
@@ -66,7 +65,6 @@ def media(request):
 					completed_albums.append(current.album)
 			content += "</td>"
 			content += "</tr></table></div><hr />"
-
 	return render(request, 'media.html', {'content' : content})
 
 def robots(request):
@@ -96,4 +94,4 @@ def aboutus(request):
 	return render(request, 'aboutus.html')	
 
 def sponsors(request):
-	return render(request, 'sponsors.html')		
+	return render(request, 'sponsors.html')
