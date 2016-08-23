@@ -44,7 +44,7 @@ def media(request):
 				current = media[i]
 				if current.year == (x + min_year):
 					for data in media:
-						if str(data.album) == str(current.album):
+						if str(data.album) == str(current.album) and current.year == data.year:
 							if data.album not in completed_albums:
 								if data.album not in albums:
 									content += """<td class="media-image">
