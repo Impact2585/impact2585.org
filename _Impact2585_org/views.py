@@ -25,7 +25,7 @@ def index(request):
 						<p>""" + slide.carousel_description + """</p>
 						</div>
 				</div>"""
-	return render(request, 'index.html', {'content' : content})		
+	return render(request, 'index.html', {'content' : content})
 
 def media(request):
 	media = Media.objects.all().order_by('year')
@@ -44,7 +44,7 @@ def media(request):
 				current = media[i]
 				if current.year == (x + min_year):
 					for data in media:
-						if str(data.album) == str(current.album):
+						if str(data.album) == str(current.album) and current.year == data.year:
 							if data.album not in completed_albums:
 								if data.album not in albums:
 									content += """<td class="media-image">
@@ -91,7 +91,18 @@ def robots(request):
 	return render(request, 'robots.html', {'frc_robots' : frc_content, 'vex_robots' : vex_content})
 
 def aboutus(request):
-	return render(request, 'aboutus.html')	
+	return render(request, 'aboutus.html')
 
 def sponsors(request):
 	return render(request, 'sponsors.html')
+
+def links(request):
+	links = Link.objects.all()
+	content = ''
+	for link in links:
+		content += """<div>
+						<p> <a href=""" + str(link.url) + """>""" + str(link.name) + """</a></p>
+						<p>""" + str(link.description) + """</p>
+						</div>
+					</div>"""
+	return render(request, 'links.html', {'content' : content});

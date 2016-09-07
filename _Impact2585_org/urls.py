@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 		url(r'^robots/', views.robots),
 		url(r'^aboutus/', views.aboutus),
 		url(r'^sponsors/', views.sponsors),
+		url(r'^links/', views.links),
     		url(r'^admin/', include(admin.site.urls)),
         	url(r'^polls/', include('polls.urls', namespace="polls")),
 
