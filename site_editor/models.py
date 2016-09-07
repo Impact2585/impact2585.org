@@ -48,4 +48,10 @@ class Sponsor(models.Model):
 	sponsor_tier = models.CharField(max_length=1, choices=TIERCHOICE)
 	def __unicode__(self):
 		return self.sponsor_tier
-		
+
+class Link(models.Model):
+	name = models.CharField(max_length = 100);
+	url = models.CharField(max_length = 100);
+	description = models.CharField(max_length = 500);
+	def __unicode__(self):
+		return self.name;

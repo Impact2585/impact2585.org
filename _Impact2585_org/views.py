@@ -25,7 +25,7 @@ def index(request):
 						<p>""" + slide.carousel_description + """</p>
 						</div>
 				</div>"""
-	return render(request, 'index.html', {'content' : content})		
+	return render(request, 'index.html', {'content' : content})
 
 def media(request):
 	media = Media.objects.all().order_by('year')
@@ -91,7 +91,18 @@ def robots(request):
 	return render(request, 'robots.html', {'frc_robots' : frc_content, 'vex_robots' : vex_content})
 
 def aboutus(request):
-	return render(request, 'aboutus.html')	
+	return render(request, 'aboutus.html')
 
 def sponsors(request):
 	return render(request, 'sponsors.html')
+
+def links(request):
+	links = Link.objects.all()
+	content = ''
+	for link in links:
+		content += """<div>
+						<p> <a href=""" + str(link.url) + """>""" + str(link.name) + """</a></p>
+						<p>""" + str(link.description) + """</p>
+						</div>
+					</div>"""
+	return render(request, 'links.html', {'content' : content});
