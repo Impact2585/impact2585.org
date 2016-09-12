@@ -52,6 +52,5 @@ class Sponsor(models.Model):
 class Link(models.Model):
 	name = models.CharField(max_length = 100);
 	url = models.CharField(max_length = 100);
-	description = models.CharField(max_length = 500);
 	def __unicode__(self):
 		return self.name;

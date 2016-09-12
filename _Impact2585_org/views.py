@@ -100,9 +100,8 @@ def links(request):
 	links = Link.objects.all()
 	content = ''
 	for link in links:
-		content += """<div>
-						<p> <a href=""" + str(link.url) + """>""" + str(link.name) + """</a></p>
-						<p>""" + str(link.description) + """</p>
+		content += """<div id= Links>
+						<p> <a href=""" + str(link.url) + """>""" + str(link.name) + """</a></p> </br>
 						</div>
 					</div>"""
 	return render(request, 'links.html', {'content' : content});
