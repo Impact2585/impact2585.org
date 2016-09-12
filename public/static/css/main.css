@@ -5,7 +5,7 @@ body{
 .nav-bar td{
 	padding: 40px;
 	padding-bottom: 30px;
-	padding-left: 30px;
+	padding-left: 10px;
 }
 
 .nav-btn,
@@ -38,7 +38,9 @@ body{
 hr{
 	border-width: 2px;
 }
-
+center {
+	padding-left: 50px;
+}
 .carousel-images{
 	float: left;
 	height: 70%;
@@ -159,4 +161,8 @@ hr{
 }
 .media-nav td{
 	padding-left: 10px;
+}
+
+#Links {
+	text-align: center;
 }
