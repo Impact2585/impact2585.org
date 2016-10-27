@@ -4,9 +4,10 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from site_editor.models import *
+import itertools
 
 def index(request):
-	slides = Index.objects.all()
+	slides = list(itertools.chain(IndexVideo.objects.all(), IndexImage.objects.all()))
 	content = ''
 	for slide in slides:
 		if slide.media_type == '0':

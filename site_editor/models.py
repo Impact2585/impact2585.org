@@ -1,15 +1,25 @@
 from django.db import models
-
+import os
 # Create your models here.
-class Index(models.Model):
-	MEDIACHOICE = (
-			('0', 'Image'),
-			('1', 'Video'),
-		)
-	carousel_media_file_name = models.CharField(max_length=200)
+def getListOfImages(path):
+	media_images = [];
+	for dirpath, dirname, files in os.walk(path):
+		media_images.extend(files)
+	return [(media_images[i], media_images[i]) for i in range(0, len(media_images))]
+
+class IndexVideo(models.Model):
+	media_type = '1'
 	carousel_title = models.CharField(max_length=200)
-	carousel_description = models.CharField(max_length=750)
-	media_type = models.CharField(max_length=1, choices=MEDIACHOICE)
+	carousel_description = models.CharField(max_length=200)
+	carousel_media_file_name = models.CharField(max_length=200)
+	def __unicode__(self):
+		return self.carousel_title
+
+class IndexImage(models.Model):
+	media_type = '0'
+	carousel_title = models.CharField(max_length=200)
+	carousel_description = models.CharField(max_length=200)
+	carousel_media_file_name = models.CharField(max_length=200, choices=getListOfImages('public/static/media/photos'))
 	def __unicode__(self):
 		return self.carousel_title
 
@@ -18,9 +28,11 @@ class Media(models.Model):
 			('0', 'FRC'),
 			('1', 'VEX'),
 		)
+
 	image = models.ImageField(upload_to='public/static/media/photos/')
 	year = models.IntegerField()
 	album = models.CharField(max_length = 50)
+
 	def __unicode__(self):
 		return self.album;
 
@@ -29,11 +41,13 @@ class Robot(models.Model):
 			('0', 'FRC'),
 			('1', 'VEX'),
 		)
+
+	ROBOTIMAGECHOICE = getListOfImages('public/static/media/photos')
 	robot_name = models.CharField(max_length=100)
 	game_name = models.CharField(max_length=100)
 	game_year = models.IntegerField()
 	description = models.CharField(max_length=500)
-	robot_image_file_name = models.CharField(max_length=200)
+	robot_image_file_name = models.CharField(max_length=200, choices = ROBOTIMAGECHOICE)
 	competition = models.CharField(max_length=1, choices=ROBOTCHOICE)
 	def __unicode__(self):
 		return self.robot_name
